@@ -1,8 +1,8 @@
 # TO-DO-list
 
 # Tecnologias usadas (versões)
-  - Java puro
-  - jdk 23
-
+  - Language level (java): SDK default
+  - openjdk-23 Oracle OpenJDK 23.0.1
+	
 # Descrição
   - 
