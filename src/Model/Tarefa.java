@@ -1,0 +1,76 @@
+package Model;
+
+public class Tarefa {
+    private String nome;
+    private String descricao;
+    private String dataTermino;
+    private int nivelPrioridade;
+    private String categoria;
+    private String status; //todo, doing, done
+
+
+    public Tarefa(String nome, String descricao, String dataTermino, int nivelPrioridade, String categoria, String status){
+        this.nome = nome;
+        this.descricao = descricao;
+        this.dataTermino = dataTermino;
+        this.nivelPrioridade = nivelPrioridade;
+        this.categoria = categoria;
+        this.status = status;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getDataTermino() {
+        return dataTermino;
+    }
+
+    public void setDataTermino(String dataTermino) {
+        this.dataTermino = dataTermino;
+    }
+
+    public int getNivelPrioridade() {
+        return nivelPrioridade;
+    }
+
+    public void setNivelPrioridade(int nivelPrioridade) {
+        this.nivelPrioridade = nivelPrioridade;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public String  toString() {
+        return "Nome: " + nome + ", Prioridade: " + nivelPrioridade + ", Categoria: " + categoria + ", Status: " + status;
+    }
+}
+
+
+
