@@ -20,7 +20,7 @@ public class TarefaView {
         int opcao;
 
         do{
-            System.out.println("===== Menu =====");
+            System.out.println("==================== Menu ====================");
             System.out.println("1. Adicionar Tarefa");
             System.out.println("2. Listar Tarefas");
             System.out.println("3. Listar por Categoria");
@@ -54,7 +54,7 @@ public class TarefaView {
         String nome = scanner.nextLine();
         System.out.print("Descrição: ");
         String descricao = scanner.nextLine();
-        System.out.print("Data de término (YYYY-MM-DD): ");
+        System.out.print("Data de término (DD-MM-YYYY): ");
         String dataTermino = scanner.nextLine();
         System.out.print("Nível de prioridade (1-5): ");
         int prioridade = scanner.nextInt();

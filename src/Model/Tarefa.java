@@ -1,21 +1,38 @@
 package Model;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
 public class Tarefa {
     private String nome;
     private String descricao;
-    private String dataTermino;
+    private LocalDate dataTermino;
     private int nivelPrioridade;
     private String categoria;
     private String status; //todo, doing, done
 
 
+
+
     public Tarefa(String nome, String descricao, String dataTermino, int nivelPrioridade, String categoria, String status){
         this.nome = nome;
         this.descricao = descricao;
-        this.dataTermino = dataTermino;
+        this.setDataTermino(dataTermino);
         this.nivelPrioridade = nivelPrioridade;
         this.categoria = categoria;
         this.status = status;
+    }
+
+    public LocalDate getDataTermino() {
+        return dataTermino;
+    }
+
+    public void setDataTermino(String data) {
+        try {
+            this.dataTermino = LocalDate.parse(data);
+        } catch (DateTimeParseException e) {
+            System.out.println("Data inválida! Utilize o formato DD-MM-YYYY.");
+        }
     }
 
     public String getNome() {
@@ -34,13 +51,6 @@ public class Tarefa {
         this.descricao = descricao;
     }
 
-    public String getDataTermino() {
-        return dataTermino;
-    }
-
-    public void setDataTermino(String dataTermino) {
-        this.dataTermino = dataTermino;
-    }
 
     public int getNivelPrioridade() {
         return nivelPrioridade;

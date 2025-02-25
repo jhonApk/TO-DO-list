@@ -9,9 +9,15 @@ import java.util.stream.Collectors;
 public class TarefaController {
     private List<Tarefa> tarefas = new ArrayList<>();
 
-    public void addTarefa(Tarefa tarefa){
-        tarefas.add(tarefa);
+    public void addTarefa(Tarefa tarefa) {
+        int i = 0;
+        while (i < tarefas.size() && tarefas.get(i).getNivelPrioridade() >= tarefa.getNivelPrioridade()) {
+            i++;
+        }
+        tarefas.add(i, tarefa);
     }
+
+
 
     public List<Tarefa> listTarefas(){
         return tarefas;
@@ -19,9 +25,11 @@ public class TarefaController {
 
     public List<Tarefa> filtrarTarefas(String filtro, String valor){
         return tarefas.stream()
-                .filter(tarefasFilter -> (filtro.equals("categoria") && tarefasFilter.getCategoria().equalsIgnoreCase(valor)) ||
+                .filter(tarefasFilter ->
+                        (filtro.equals("categoria") && tarefasFilter.getCategoria().equalsIgnoreCase(valor)) ||
                         (filtro.equals("prioridade") && String.valueOf(tarefasFilter.getNivelPrioridade()).equals(valor)) ||
-                        (filtro.equals("status") && tarefasFilter.getStatus().equalsIgnoreCase(valor)))
+                        (filtro.equals("status") && tarefasFilter.getStatus().equalsIgnoreCase(valor)) ||
+                        (filtro.equals("todas")))
                 .collect(Collectors.toList());
     }
 
