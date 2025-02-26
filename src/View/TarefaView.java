@@ -26,9 +26,10 @@ public class TarefaView {
             System.out.println("3. Listar por Categoria");
             System.out.println("4. Listar por Prioridade");
             System.out.println("5. Listar por Status");
-            System.out.println("6. Atualizar Status de uma Tarefa");
-            System.out.println("7. Remover Tarefa");
-            System.out.println("8. Sair");
+            System.out.println("6. Listar por Data");
+            System.out.println("7. Atualizar Status de uma Tarefa");
+            System.out.println("8. Remover Tarefa");
+            System.out.println("9. Sair");
             System.out.print("Escolha uma opção: ");
 
             opcao = scanner.nextInt();
@@ -40,13 +41,14 @@ public class TarefaView {
                 case 3 -> filtrarTarefas("categoria");
                 case 4 -> filtrarTarefas("prioridade");
                 case 5 -> filtrarTarefas("status");
-                case 6 -> atualizarStatus();
-                case 7 -> removerTarefa();
-                case 8 -> System.out.println("Saindo...");
+                case 6 -> filtrarTarefas("data");
+                case 7 -> atualizarStatus();
+                case 8 -> removerTarefa();
+                case 9 -> System.out.println("Saindo...");
                 default -> System.out.println("Opção inválida!");
             }
 
-        }while (opcao != 8);
+        }while (opcao != 9);
     }
 
     private void addTarefa(){

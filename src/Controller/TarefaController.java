@@ -2,6 +2,8 @@ package Controller;
 
 import Model.Tarefa;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -23,12 +25,16 @@ public class TarefaController {
         return tarefas;
     }
 
+    DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+
     public List<Tarefa> filtrarTarefas(String filtro, String valor){
         return tarefas.stream()
                 .filter(tarefasFilter ->
                         (filtro.equals("categoria") && tarefasFilter.getCategoria().equalsIgnoreCase(valor)) ||
                         (filtro.equals("prioridade") && String.valueOf(tarefasFilter.getNivelPrioridade()).equals(valor)) ||
                         (filtro.equals("status") && tarefasFilter.getStatus().equalsIgnoreCase(valor)) ||
+                        (filtro.equals("data") && tarefasFilter.getDataTermino().equals(LocalDate.parse(valor, FORMATTER))) ||
                         (filtro.equals("todas")))
                 .collect(Collectors.toList());
     }

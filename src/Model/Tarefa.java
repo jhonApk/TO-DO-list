@@ -1,6 +1,7 @@
 package Model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 public class Tarefa {
@@ -11,6 +12,7 @@ public class Tarefa {
     private String categoria;
     private String status; //todo, doing, done
 
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
 
 
@@ -29,7 +31,7 @@ public class Tarefa {
 
     public void setDataTermino(String data) {
         try {
-            this.dataTermino = LocalDate.parse(data);
+            this.dataTermino = LocalDate.parse(data, FORMATTER);
         } catch (DateTimeParseException e) {
             System.out.println("Data inválida! Utilize o formato DD-MM-YYYY.");
         }
@@ -76,10 +78,13 @@ public class Tarefa {
         this.status = status;
     }
 
+
+
     @Override
     public String  toString() {
-        return "Nome: " + nome + ", Prioridade: " + nivelPrioridade + ", Categoria: " + categoria + ", Status: " + status;
+        return "Nome: " + nome + ", Prioridade: " + nivelPrioridade + ", Categoria: " + categoria + ", Status: " + status + ", Data: " + dataTermino.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
     }
+
 }
 
 
